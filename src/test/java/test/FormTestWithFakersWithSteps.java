@@ -3,6 +3,7 @@ package test;
 import com.github.javafaker.Faker;
 import config.WebConfig;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ public class FormTestWithFakersWithSteps extends TestBase {
 
     @Test
     @Feature("Fakers with steps feature")
+    @Story("Story example")
     @DisplayName("Successful fill form test with Steps")
     void dataAfterSubmitForm() {
         Faker faker = new Faker();
