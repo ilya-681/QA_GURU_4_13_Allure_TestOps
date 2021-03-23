@@ -10,7 +10,7 @@ repositories {
 
 def allureVersion = "2.13.8",
     selenideVersion = "5.20.0",
-    junitVersion = "5.7.0"
+    junitVersion = "5.7.1"
 
 allure {
     version = "${allureVersion}"
@@ -41,6 +41,7 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     systemProperties += System.properties
+   // System.setProperty("cromeoptions.prefs". "intl.accept_languages=en")
 }
 
 test {

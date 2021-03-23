@@ -2,6 +2,7 @@ package test;
 
 
 import config.WebConfig;
+import io.qameta.allure.Feature;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class FormTest extends TestBase {
 
     @Test
+    @Feature("Simple test")
     @DisplayName("Successful fill form test")
     void dataAfterSubmitForm() {
 

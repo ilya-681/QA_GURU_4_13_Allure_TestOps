@@ -1,6 +1,7 @@
 package test;
 
 import config.WebConfig;
+import io.qameta.allure.Feature;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class FormTestNegativeTests extends TestBase {
 
     @Test
+    @Feature("Negative test feature")
     @Tag("negative")
     @DisplayName("Negative fill form test with Fakers")
     void dataAfterSubmitForm() {

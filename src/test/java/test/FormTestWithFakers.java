@@ -2,6 +2,7 @@ package test;
 
 import com.github.javafaker.Faker;
 import config.WebConfig;
+import io.qameta.allure.Feature;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,7 @@ import static utils.RandomUtils.*;
 public class FormTestWithFakers extends TestBase {
 
     @Test
+    @Feature("Faker tests feature")
     @DisplayName("Successful fill form test with Fakers")
     void dataAfterSubmitForm() {
         Faker faker = new Faker();
