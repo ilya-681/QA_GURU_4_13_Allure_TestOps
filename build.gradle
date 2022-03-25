@@ -9,40 +9,43 @@ repositories {
     mavenCentral()
 }
 
-def allureVersion = "2.13.8",
-    selenideVersion = "5.20.0",
-    junitVersion = "5.7.1"
+def allureVersion = "2.17.3",
+    selenideVersion = "6.3.5",
+    junitVersion = "5.8.2"
 
 allure {
-    version = "${allureVersion}"
+    version = allureVersion
     autoconfigure = true
     aspectjweaver = true
+    configuration = "testImplementation"
     useJUnit5 {
-        version = "${allureVersion}"
+        version = allureVersion
     }
 }
 
-sourceCompatibility = 1.8
 
 dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
-            "org.assertj:assertj-core:3.19.0",
+            "org.assertj:assertj-core:3.22.0",
             "org.aeonbits.owner:owner:1.0.12",
-            "io.qameta.allure:allure-ee-junit-platform:3.28.2",
+//            "io.qameta.allure:allure-ee-junit-platform:3.28.2",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.junit.jupiter:junit-jupiter-params:$junitVersion")
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+    options.encoding = 'UTF-8'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.withType(Test) {
     systemProperties += System.properties
+    useJUnitPlatform()
     System.setProperty("chromeoptions.prefs", "intl.accept_languages=en")
     systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
 
@@ -58,9 +61,9 @@ tasks.withType(Test) {
 
 }
 
-test {
-    useJUnitPlatform()
-}
+//test {
+//    useJUnitPlatform()
+//}
 
 task negative_tests(type: Test) {
     useJUnitPlatform {
